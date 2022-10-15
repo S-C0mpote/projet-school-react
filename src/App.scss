@@ -1,5 +1,17 @@
 .App {
   text-align: center;
+  .agents-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    .agents {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
 }
 
 .App-logo {

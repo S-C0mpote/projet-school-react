@@ -1,0 +1,13 @@
+@import "../variables";
+
+.header {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  h1{
+    font-size: 45px;
+    font-family: "URW Gothic";
+    color: wheat;
+  }
+}
