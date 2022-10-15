@@ -1,7 +1,7 @@
 import React from "react";
+import {Agent} from "../interfaces/Agent";
 type CardProps = {
-    title: string;
-    displayUrl: string;
+    agent: Agent
 };
 type CardState = {
     count: number; // like this
@@ -12,10 +12,10 @@ export class Card extends React.Component<CardProps, CardState>{
         return (
             <div className="card">
                 <div className="card-header">
-                    <h1>{this.props.title}</h1>
+                    <h1>{this.props.agent.displayName}</h1>
                 </div>
                 <div>
-                    <img src={this.props.displayUrl} width="100%" height="250px"/>
+                    <img src={this.props.agent.displayIcon} width="100%" height="250px"/>
                 </div>
             </div>
         )
