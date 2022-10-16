@@ -42,12 +42,7 @@ function Home() {
             </div>
         ))
     })
-    if(loading){
-        console.log('Loading...')
-        return (
-            <h1>Loading...</h1>
-        )
-    }
+
     return (
         <div className="home">
             <Header title={"PROJET AVEC VALORANT-API.COM !"}/>

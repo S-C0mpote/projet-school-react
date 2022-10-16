@@ -1,15 +1,16 @@
 import React, {useEffect, useState} from "react";
-import {useLocation, useNavigate, useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
+import {AgentHeader} from "../components/AgentHeader";
 function AgentPage() {
-    const location = useLocation();
+    useLocation();
     const { uuid } = useParams();
     const URL = `https://valorant-api.com/v1/agents/${uuid}?language=fr-FR`;
-    const [loading, setLoaded] = useState(true);
     const [agent, setAgent] = useState({
-        displayName: undefined,
-        uuid: undefined,
-        displayIcon: undefined,
-        description: undefined
+        displayName: "",
+        uuid: "",
+        displayIcon: "",
+        description: "",
+        ultime: ""
     });
 
     useEffect(() => {
@@ -17,20 +18,33 @@ function AgentPage() {
             .then(res => res.json())
             .then(
                 (result) => {
-                    setLoaded(false);
+                    const abilities = result.data.abilities;
+                    let ulti = "";
+                    abilities.forEach((e:any) => {
+                        if(e.slot === 'Ultimate'){
+                            ulti = e.displayIcon;
+                        }
+                    })
                     setAgent({displayName: result.data.displayName, displayIcon: result.data.displayIcon,
-                        description: result.data.description, uuid: result.data.uuid});
+                        description: result.data.description, uuid: result.data.uuid, ultime: ulti});
                 },
             )
     }, [URL])
-    if(loading){
-        console.log('Loading...')
-        return (
-            <h1>Loading...</h1>
-        )
-    }
+
     return (
-        <h1>Bienvenue sur la page de {agent.displayName}</h1>
+        <div className="container">
+            <AgentHeader title={agent.displayName}/>
+            <div className="middle">
+                <div className="description">
+                    <h1>Description : </h1>
+                    <span>{agent.description}</span>
+                </div>
+            </div>
+            <div className="logo">
+                <img src={agent.ultime} alt={"ultime"}/>
+            </div>
+            <img src={agent.displayIcon} id="iconAgent" alt={"profil"}/>
+        </div>
     )
 }
 export default AgentPage;
