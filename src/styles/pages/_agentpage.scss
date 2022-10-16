@@ -2,7 +2,11 @@
 @import url('http://fonts.cdnfonts.com/css/valorant');
 
 .container {
-  background-image: url("../../assets/logo.png");
+  background: url("../../assets/logo.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   display: flex;
