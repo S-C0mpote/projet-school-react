@@ -11,7 +11,7 @@ export default function Card(props: CardProps){
                 <h1>{props.agent.displayName}</h1>
             </div>
             <div>
-                <img src={props.agent.displayIcon} width="100%" height="250px"/>
+                <img src={props.agent.displayIcon} width="100%" height="250px" alt={"image"}/>
             </div>
         </div>
     )

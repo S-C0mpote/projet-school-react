@@ -8,7 +8,6 @@ function Home() {
     const URL = 'https://valorant-api.com/v1/agents?language=fr-FR';
 
     const [agents, setItems] = useState([]);
-    const [loading, setLoaded] = useState(true)
     const navigate = useNavigate()
     // Note: the empty deps array [] means
     // this useEffect will run once
@@ -18,7 +17,6 @@ function Home() {
             .then(res => res.json())
             .then(
                 (result) => {
-                    setLoaded(false);
                     const filtered: any = [];
 
                     for (let agent of result.data)
