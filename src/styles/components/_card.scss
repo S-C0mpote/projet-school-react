@@ -1,6 +1,9 @@
 @import "../variables";
-@import url('http://fonts.cdnfonts.com/css/valorant');
 
+@font-face {
+  font-family: 'VALORANT';
+  src: url("http://fonts.cdnfonts.com/css/valorant");
+}
 .card {
   min-width: 250px;
   max-width: 280px;
