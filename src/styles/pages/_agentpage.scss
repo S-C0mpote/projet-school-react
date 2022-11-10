@@ -1,5 +1,5 @@
 @import "../variables";
-@import url('http://fonts.cdnfonts.com/css/valorant');
+@font-face{font-family:valorant;font-style:normal;font-weight:400;src:local('VALORANT'),url('https://fonts.cdnfonts.com/s/37505/Valorant Font.woff') format('woff')}
 
 .container {
   background: url("../../assets/logo.png") no-repeat center center fixed;
