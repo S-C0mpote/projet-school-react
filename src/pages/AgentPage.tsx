@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useLocation, useParams} from "react-router-dom";
-import {AgentHeader} from "../components/AgentHeader";
+import AgentHeader from "../components/AgentHeader";
 function AgentPage() {
     useLocation();
     const { uuid } = useParams();

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Agent} from "../interfaces/Agent";
-import {Card} from "../components/Card";
+import Card from "../components/Card";
 import {Header} from "../components/Header";
 
 function Home() {
@@ -43,7 +43,7 @@ function Home() {
                         agents.map((e: Agent) => {
                             return (
                                 <div className="agent" onClick={() => navigate('/agent/' + e.uuid,{state:{agent:e}})} key={e.uuid}>
-                                 <Card agent={e} key={e.uuid}/>
+                                 <Card agent={e} key={e.uuid} />
                                 </div>
                             )
                         })
