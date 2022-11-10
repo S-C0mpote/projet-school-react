@@ -34,21 +34,20 @@ function Home() {
                 },
             )
     }, [])
-    let card_agent: any[] = [];
-    agents.forEach((e: Agent) => {
-        card_agent.push((
-            <div className="agent" onClick={() => navigate('/agent/' + e.uuid,{state:{agent:e}})} key={e.uuid}>
-                <Card agent={e} key={e.uuid}/>
-            </div>
-        ))
-    })
-
     return (
         <div className="home">
             <Header title={"PROJET AVEC VALORANT-API.COM !"}/>
             <div className="agents-container">
                 <div className="agents">
-                    {card_agent}
+                    {
+                        agents.map((e: Agent) => {
+                            return (
+                                <div className="agent" onClick={() => navigate('/agent/' + e.uuid,{state:{agent:e}})} key={e.uuid}>
+                                 <Card agent={e} key={e.uuid}/>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </div>

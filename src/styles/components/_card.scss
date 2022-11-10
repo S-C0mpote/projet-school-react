@@ -8,7 +8,8 @@
   background-position: center;
   cursor: pointer;
   background-size: 531px 300px;
-  -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.1));
+  text-align: center;
+
   box-sizing: border-box;
   .card-header {
     color:$red-high;
@@ -24,10 +25,9 @@
   @keyframes float {
     0% {
       transform: translatey(0px);
-
     }
     50% {
-      transform: translatey(-10px);
+      transform: translatey(-10px) rotate(5deg);
     }
     100% {
       transform: translatey(0px);
