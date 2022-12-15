@@ -4,7 +4,7 @@ import {configureStore} from "@reduxjs/toolkit";
 export const ADD_AGENT = 'ADD_AGENT'
 interface Action {
     type: string,
-    agent: Agent
+    payload: Agent
 }
 function agentReducer(state: any = {agents: []}, action: Action) {
     switch (action.type as string) {
@@ -13,15 +13,15 @@ function agentReducer(state: any = {agents: []}, action: Action) {
             if(state.agents.length > 0){
                 let newTab: Agent[] = [];
                 state.agents.forEach((e: Agent) => {
-                    if(e.uuid !== action.agent.uuid)
+                    if(e.uuid !== action.payload.uuid)
                         newTab.push(e)
                 })
-                newTab.push(action.agent);
+                newTab.push(action.payload);
                 if(newTab.length > 3)
                     newTab.shift();
                 return {agents: newTab}
             }else{
-                return {agents: [action.agent]};
+                return {agents: [action.payload]};
             }
         default:
             return state;

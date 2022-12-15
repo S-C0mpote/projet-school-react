@@ -60,7 +60,7 @@ function Home() {
                         agents.map((e: Agent) => {
                             return (
                                 <div className="agent" onClick={() => {
-                                    store.dispatch({type: ADD_AGENT, agent: e});
+                                    store.dispatch({type: ADD_AGENT, payload: e});
                                     navigate('/agent/' + e.uuid,{state:{agent:e}});
                                 }} key={e.uuid}>
                                  <Card agent={e} key={e.uuid} />
