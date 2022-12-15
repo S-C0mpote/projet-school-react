@@ -39,15 +39,22 @@ function Home() {
             <Header title={"PROJET AVEC VALORANT-API.COM !"}/>
             <div className="last-agents">
                 <span>Derniers agents séléctionnés</span>
-                <select>
+                <select onChange={
+                    event => {
+                        agentStore.getState().agents.forEach((e:Agent) => {
+                            console.log(event.target.value)
+                            if(e.uuid === event.target.value){
+                                navigate('/agent/' + e.uuid,{state:{agent:e}});
+                            }
+                        })
+                    }
+                }>
                     {
                         agentStore.getState().agents.map((e: Agent) => {
                             return (
                                 <option
-                                    onClick={() => {
-                                        navigate('/agent/' + e.uuid,{state:{agent:e}});
-                                    }}
                                     key={e.uuid}
+                                    value={e.uuid}
                                 >{e.displayName}</option>
                             )
                         })

@@ -4,12 +4,11 @@ import {configureStore} from "@reduxjs/toolkit";
 export const ADD_AGENT = 'ADD_AGENT'
 interface Action {
     type: string,
-    payload: Agent
+    payload: any
 }
 function agentReducer(state: any = {agents: []}, action: Action) {
     switch (action.type as string) {
         case ADD_AGENT:
-            console.log('here')
             if(state.agents.length > 0){
                 let newTab: Agent[] = [];
                 state.agents.forEach((e: Agent) => {
